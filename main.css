@@ -3,7 +3,8 @@
 
 
 :root {
-  --primary-color:#65a30d;
+  background-color: black;
+  color: whitesmoke;
 }
 
 body {
@@ -11,14 +12,12 @@ body {
   min-width: 100vw;
 }
 
+
 .container {
   margin: 4rem auto 7rem;
   text-align: center;
 }
 
-.heading {
-  color: var(--primary-color);
-}
 
 .description {
   font-size: large;
@@ -36,21 +35,19 @@ body {
   outline: #fff;
   padding: 0.6rem 1rem;
   margin: 1rem;
-  border: 2px solid var(--primary-color);
+  
   border-radius: 0.5rem;
   width: 100%;
   max-width: 258px;
 }
 
 #check-button {
-  background: var(--primary-color);
-  border: none;
-  color: #fff;
   padding: 0.7rem 1rem;
   border-radius: 0.5rem;
+  background-color: rgb(60, 0, 128);
+  color: whitesmoke;
   font-size: large;
   cursor: pointer;
-  outline: #fff;
   margin: auto;
   display: block;
 }
@@ -76,7 +73,7 @@ Table.change-table {
 
 th,
 td {
-  border: 2px solid var(--primary-color);
+  border: 0.1rem solid rgb(60, 0, 128);
   width: 0%;
   border-collapse: collapse;
   padding: 0.4rem;
