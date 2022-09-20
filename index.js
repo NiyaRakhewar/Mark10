@@ -1,44 +1,43 @@
-const billAmount = document.querySelector("#bill-amount");
-const cashGiven = document.querySelector("#cash-given");
-const checkButton = document.querySelector("#check-button");
-const message = document.querySelector("#error-message");
-const noOfNotes = document.querySelectorAll(".no-of-notes");
-// console.log(cashGiven.value);
-// console.log(billAmount.value);
-const availableNotes = [2000,500,100,20,10,5,1];
+const billingAmount = document.querySelector("#billamount");
+const givenCash = document.querySelector("#givencash");
+const checkBtn = document.querySelector("#check-button");
+const msg = document.querySelector("#error-msg");
+const noOfNotes = document.querySelectorAll(".notes-num");
 
-checkButton.addEventListener("click", function validateBillAndCashAmount(){
-    hideMessage();
-    if(billAmount.value > 0){
-        if(cashGiven.value >= billAmount.value){
-            const amountToBeReturned = cashGiven.value - billAmount.value;
-            calculateChange(amountToBeReturned);
+const notesAvail = [2000,500,100,20,10,5,1];
+
+checkBtn.addEventListener("click", function validateBillAndCashAmount(){
+    hideMsg();
+    if(billingAmount.value > 0){
+        if(givenCash.value >= billingAmount.value){
+            const returnAmount = givenCash.value - billingAmount.value;
+            calculateChange(returnAmount);
 
         } else{
-            showMessage("Do you wanna wash Dishes ?");
+            showMsg("Do you wanna wash Dishes ?");
             
         }
     }else{
-        showMessage("Invalid Bill Amount");
+        showMsg("Invalid Bill Amount");
         
     }
 });
 
-function calculateChange(amountToBeReturned){
-    for(let i = 0; i < availableNotes.length; i++){
-        const numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
+function calculateChange(returnAmount){
+    for(let i = 0; i < notesAvail.length; i++){
+        const numOfNotes = Math.trunc(returnAmount / notesAvail[i]);
 
-        amountToBeReturned  %= availableNotes[i];
-        noOfNotes[i].innerText = numberOfNotes;
+        returnAmount  %= notesAvail[i];
+        noOfNotes[i].innerText = numOfNotes;
     }
 
 }
 
-function hideMessage(){
-    message.style.display = "none";
+function hideMsg(){
+    msg.style.display = "none";
 }
 
-function showMessage(msg){
+function showMsg(msg){
     message.style.display = "block";
     message.innerText = msg;
 }
